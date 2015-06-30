@@ -2890,3 +2890,922 @@ Migrating to AddForeingKeyCategories (20150630075912)
   [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
   [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
   [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+
+Started GET "/departaments" for ::1 at 2015-06-30 05:11:44 -0300
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Processing by DepartamentsController#index as HTML
+  [1m[36mDepartament Load (0.3ms)[0m  [1mSELECT "departaments".* FROM "departaments"[0m
+  Rendered departaments/index.html.erb within layouts/application (13.2ms)
+Completed 200 OK in 526ms (Views: 520.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/departaments/new" for ::1 at 2015-06-30 05:11:46 -0300
+Processing by DepartamentsController#new as HTML
+  Rendered departaments/_form.html.erb (3.0ms)
+  Rendered departaments/new.html.erb within layouts/application (26.1ms)
+Completed 200 OK in 398ms (Views: 396.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/departaments" for ::1 at 2015-06-30 05:11:52 -0300
+Processing by DepartamentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"umfOrAqWOBTC4GQ/LDH3zlBhp8nT+JMeKTMhmuDLsjoPCghb2TO/hfV7cw51QgjuWxgCYeOSkNp5Pa7SvdWa3A==", "departament"=>{"title"=>"Departamento 3"}, "commit"=>"Criar Departament"}
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "departaments" ("title", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["title", "Departamento 3"], ["created_at", "2015-06-30 08:11:52.819327"], ["updated_at", "2015-06-30 08:11:52.819327"]]
+  [1m[35m (5.3ms)[0m  commit transaction
+Redirected to http://localhost:3000/departaments/3
+Completed 302 Found in 17ms (ActiveRecord: 6.2ms)
+
+
+Started GET "/departaments/3" for ::1 at 2015-06-30 05:11:52 -0300
+Processing by DepartamentsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mDepartament Load (0.3ms)[0m  [1mSELECT  "departaments".* FROM "departaments" WHERE "departaments"."id" = ? LIMIT 1[0m  [["id", 3]]
+  Rendered departaments/show.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 450ms (Views: 446.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/departaments" for ::1 at 2015-06-30 05:11:55 -0300
+Processing by DepartamentsController#index as HTML
+  [1m[35mDepartament Load (0.3ms)[0m  SELECT "departaments".* FROM "departaments"
+  Rendered departaments/index.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 297ms (Views: 295.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/mytickets" for ::1 at 2015-06-30 05:11:56 -0300
+Processing by MyticketsController#index as HTML
+  [1m[36mMyticket Load (0.3ms)[0m  [1mSELECT "mytickets".* FROM "mytickets"[0m
+  Rendered mytickets/index.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 401ms (Views: 376.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/mytickets/new" for ::1 at 2015-06-30 05:11:57 -0300
+Processing by MyticketsController#new as HTML
+  [1m[35mDepartament Load (0.3ms)[0m  SELECT "departaments".* FROM "departaments"
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered mytickets/_form.html.erb (45.7ms)
+  Rendered mytickets/new.html.erb within layouts/application (112.2ms)
+Completed 200 OK in 502ms (Views: 480.9ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/categories" for ::1 at 2015-06-30 05:12:05 -0300
+Processing by CategoriesController#index as HTML
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered categories/index.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 402ms (Views: 400.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/categories/new" for ::1 at 2015-06-30 05:12:07 -0300
+Processing by CategoriesController#new as HTML
+  Rendered categories/_form.html.erb (3.4ms)
+  Rendered categories/new.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 236ms (Views: 234.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/categories" for ::1 at 2015-06-30 05:12:12 -0300
+Processing by CategoriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RPP2uJDeK08SgFfLMOpSj3uVRu0LDc8YcsO8eGfMOHTxnjBPQ3us3iUbQPppma2vcOzjRTtnzNwizTMwOtIQkg==", "category"=>{"departament"=>"", "name"=>"Categoria 3"}, "commit"=>"Criar Category"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "categories" ("departament", "name", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["departament", ""], ["name", "Categoria 3"], ["created_at", "2015-06-30 08:12:12.353515"], ["updated_at", "2015-06-30 08:12:12.353515"]]
+  [1m[36m (25.7ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/categories/3
+Completed 302 Found in 34ms (ActiveRecord: 26.4ms)
+
+
+Started GET "/categories/3" for ::1 at 2015-06-30 05:12:12 -0300
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mCategory Load (0.3ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered categories/show.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 391ms (Views: 386.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/categories" for ::1 at 2015-06-30 05:12:14 -0300
+Processing by CategoriesController#index as HTML
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered categories/index.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 339ms (Views: 337.3ms | ActiveRecord: 0.3ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to AddForeingKeyCategories (20150630075912)
+  [1m[36m (1.5ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.8ms)[0m  CREATE TEMPORARY TABLE "acategories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "departament" varchar, "name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.6ms)[0m  [1mSELECT * FROM "categories"[0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "acategories" ("id","departament","name","created_at","updated_at") VALUES (1, '', 'Categoria 1', '2015-06-30 07:57:29.542743', '2015-06-30 07:57:29.542743')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "acategories" ("id","departament","name","created_at","updated_at") VALUES (2, '', 'Categoria 2', '2015-06-30 07:57:38.741125', '2015-06-30 07:57:38.741125')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "acategories" ("id","departament","name","created_at","updated_at") VALUES (3, '', 'Categoria 3', '2015-06-30 08:12:12.353515', '2015-06-30 08:12:12.353515')
+  [1m[36m (0.5ms)[0m  [1mDROP TABLE "categories"[0m
+  [1m[35m (0.2ms)[0m  CREATE TABLE "categories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "departament" varchar, "name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "acategories"[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "categories" ("id","departament","name","created_at","updated_at") VALUES (1, '', 'Categoria 1', '2015-06-30 07:57:29.542743', '2015-06-30 07:57:29.542743')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "categories" ("id","departament","name","created_at","updated_at") VALUES (2, '', 'Categoria 2', '2015-06-30 07:57:38.741125', '2015-06-30 07:57:38.741125')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "categories" ("id","departament","name","created_at","updated_at") VALUES (3, '', 'Categoria 3', '2015-06-30 08:12:12.353515', '2015-06-30 08:12:12.353515')
+  [1m[36m (0.8ms)[0m  [1mDROP TABLE "acategories"[0m
+  [1m[35m (0.2ms)[0m  CREATE TEMPORARY TABLE "acategories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "departament" varchar, "name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "categories"[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "acategories" ("id","departament","name","created_at","updated_at") VALUES (1, '', 'Categoria 1', '2015-06-30 07:57:29.542743', '2015-06-30 07:57:29.542743')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "acategories" ("id","departament","name","created_at","updated_at") VALUES (2, '', 'Categoria 2', '2015-06-30 07:57:38.741125', '2015-06-30 07:57:38.741125')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "acategories" ("id","departament","name","created_at","updated_at") VALUES (3, '', 'Categoria 3', '2015-06-30 08:12:12.353515', '2015-06-30 08:12:12.353515')
+  [1m[36m (0.4ms)[0m  [1mDROP TABLE "categories"[0m
+  [1m[35m (0.2ms)[0m  CREATE TABLE "categories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "departament" varchar, "name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "acategories"[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "categories" ("id","departament","name","created_at","updated_at") VALUES (1, '', 'Categoria 1', '2015-06-30 07:57:29.542743', '2015-06-30 07:57:29.542743')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "categories" ("id","departament","name","created_at","updated_at") VALUES (2, '', 'Categoria 2', '2015-06-30 07:57:38.741125', '2015-06-30 07:57:38.741125')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "categories" ("id","departament","name","created_at","updated_at") VALUES (3, '', 'Categoria 3', '2015-06-30 08:12:12.353515', '2015-06-30 08:12:12.353515')
+  [1m[36m (0.1ms)[0m  [1mDROP TABLE "acategories"[0m
+  [1m[35mSQL (7.2ms)[0m  DELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?  [["version", "20150630075912"]]
+  [1m[36m (4.6ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.5ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddForeingKeyCategories (20150630075912)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.9ms)[0m  [1mALTER TABLE "categories" ADD "departaments_id" integer[0m
+  [1m[35m (63.9ms)[0m  ALTER TABLE "categories" ADD "categories_id" integer
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150630075912"]]
+  [1m[35m (2.4ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/categories/new" for ::1 at 2015-06-30 05:17:44 -0300
+Processing by CategoriesController#new as HTML
+  [1m[35mDepartament Load (0.4ms)[0m  SELECT "departaments".* FROM "departaments"
+  Rendered categories/_form.html.erb (46.1ms)
+  Rendered categories/new.html.erb within layouts/application (74.7ms)
+Completed 500 Internal Server Error in 123ms (ActiveRecord: 1.9ms)
+
+ActionView::Template::Error (undefined method `[]' for nil:NilClass):
+    20:     <div class="controls">
+    21:     <%= f.select :departaments_id, Departament.all.map {|i| [i.title, i.id] }, :class => 'form-control' %>
+    22:     </div>
+    23:     <%= error_span(@myticket[:departament]) %>
+    24:   </div>
+    25:   <div class="control-group">
+    26:     <%= f.label :name, :class => 'control-label' %>
+  app/views/categories/_form.html.erb:23:in `block in _app_views_categories__form_html_erb__834074188728398844_70154325758600'
+  app/views/categories/_form.html.erb:1:in `_app_views_categories__form_html_erb__834074188728398844_70154325758600'
+  app/views/categories/new.html.erb:5:in `_app_views_categories_new_html_erb___2071611476380942263_70154312263900'
+
+
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_source.erb (14.7ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.6ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (57.7ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.1.3/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.1.3/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.7ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.1.3/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.7ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.1.3/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.1.3/lib/web_console/templates/console.js.erb within layouts/javascript (51.5ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.1.3/lib/web_console/templates/main.js.erb within layouts/javascript (1.1ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.1.3/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.1.3/lib/web_console/templates/index.html.erb (117.1ms)
+
+
+Started GET "/categories/new" for ::1 at 2015-06-30 05:17:46 -0300
+Processing by CategoriesController#new as HTML
+  [1m[36mDepartament Load (0.3ms)[0m  [1mSELECT "departaments".* FROM "departaments"[0m
+  Rendered categories/_form.html.erb (11.8ms)
+  Rendered categories/new.html.erb within layouts/application (20.0ms)
+Completed 500 Internal Server Error in 29ms (ActiveRecord: 0.3ms)
+
+ActionView::Template::Error (undefined method `[]' for nil:NilClass):
+    20:     <div class="controls">
+    21:     <%= f.select :departaments_id, Departament.all.map {|i| [i.title, i.id] }, :class => 'form-control' %>
+    22:     </div>
+    23:     <%= error_span(@myticket[:departament]) %>
+    24:   </div>
+    25:   <div class="control-group">
+    26:     <%= f.label :name, :class => 'control-label' %>
+  app/views/categories/_form.html.erb:23:in `block in _app_views_categories__form_html_erb__834074188728398844_70154327350660'
+  app/views/categories/_form.html.erb:1:in `_app_views_categories__form_html_erb__834074188728398844_70154327350660'
+  app/views/categories/new.html.erb:5:in `_app_views_categories_new_html_erb___2071611476380942263_70154327284840'
+
+
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_source.erb (14.0ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (7.7ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (50.8ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.1.3/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.1.3/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.6ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.1.3/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.1.3/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.1.3/lib/web_console/templates/console.js.erb within layouts/javascript (27.8ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.1.3/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.1.3/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.8ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.1.3/lib/web_console/templates/index.html.erb (53.7ms)
+
+
+Started GET "/categories/new" for ::1 at 2015-06-30 05:18:10 -0300
+Processing by CategoriesController#new as HTML
+  [1m[35mDepartament Load (0.3ms)[0m  SELECT "departaments".* FROM "departaments"
+  Rendered categories/_form.html.erb (6.5ms)
+  Rendered categories/new.html.erb within layouts/application (14.7ms)
+Completed 200 OK in 670ms (Views: 668.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/twitter-bootstrap-static/fontawesome.self-c1a8821f7eb1b195061d7706930814ecc6bd44db4c68f208da5fe14845fa11ea.css?body=1" for ::1 at 2015-06-30 05:18:11 -0300
+
+
+Started GET "/assets/bootstrap_and_overrides.self-2cb3834583dfbaf0a39c7139750bf963e05d79cbe811126997e013400be5d8dc.css?body=1" for ::1 at 2015-06-30 05:18:11 -0300
+
+
+Started GET "/assets/departaments.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-06-30 05:18:11 -0300
+
+
+Started GET "/assets/categories.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-06-30 05:18:11 -0300
+
+
+Started GET "/assets/customers.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-06-30 05:18:11 -0300
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-06-30 05:18:11 -0300
+
+
+Started GET "/assets/mytickets.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-06-30 05:18:11 -0300
+
+
+Started GET "/assets/twitter-bootstrap-static/bootstrap.self-77d963462a71b85aa6c39f0110994006fed4301154d937da52eb3884ff813853.css?body=1" for ::1 at 2015-06-30 05:18:11 -0300
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2015-06-30 05:18:11 -0300
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-06-30 05:18:11 -0300
+
+
+Started GET "/assets/jquery_ujs.self-ca5248a2fad13d6bd58ea121318d642f195f0b2dd818b30615f785ff365e8d1f.js?body=1" for ::1 at 2015-06-30 05:18:11 -0300
+
+
+Started GET "/assets/twitter/bootstrap/transition.self-db278e3a8fa6249c16796b113ebd29e11ef4e2cd021618ed84895d524a4511e0.js?body=1" for ::1 at 2015-06-30 05:18:11 -0300
+
+
+Started GET "/assets/twitter/bootstrap/dropdown.self-8bb9309b6c24a4ba6b94026a049d25b13bdc0553b6fe83255c14a715ba624cc4.js?body=1" for ::1 at 2015-06-30 05:18:11 -0300
+
+
+Started GET "/assets/twitter/bootstrap/alert.self-ebce91ec66c71bcee451ea7da9128fd1bf8faa02c6d22ea04c598423431e4c08.js?body=1" for ::1 at 2015-06-30 05:18:11 -0300
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy.self-bd0c6724cdc75302fe98dfeff923112b76c1673cf4a0752a7050b7feea15594c.js?body=1" for ::1 at 2015-06-30 05:18:11 -0300
+
+
+Started GET "/assets/twitter/bootstrap/tab.self-7e3ee4a243bb416b5f0111a0be08f8547c5d72ba71fe4afe4a4a007f5cb4e10e.js?body=1" for ::1 at 2015-06-30 05:18:11 -0300
+
+
+Started GET "/assets/twitter/bootstrap/modal.self-ab1767545e27c0dbd36971e656ae4927171f673e3d932cdec2cbef39e991952b.js?body=1" for ::1 at 2015-06-30 05:18:11 -0300
+
+
+Started GET "/assets/twitter/bootstrap/tooltip.self-d7f9330825307d053f68da11bb9ddc9b070df72deef3d115f2f3d55f66b17457.js?body=1" for ::1 at 2015-06-30 05:18:11 -0300
+
+
+Started GET "/assets/twitter/bootstrap/collapse.self-a87553101c955a01e2e8c81fad69a16582ddbf58fe95d5eb335dde5567af7647.js?body=1" for ::1 at 2015-06-30 05:18:11 -0300
+
+
+Started GET "/assets/twitter/bootstrap/button.self-ceb562de883e04359bb2c06f07bdf6ecf065cc8a5027e2e58857c5e91b0b68e3.js?body=1" for ::1 at 2015-06-30 05:18:11 -0300
+
+
+Started GET "/assets/twitter/bootstrap/popover.self-cd672ecad3b549e1dbd89bfd044e5812d6fdade56f42d48e3acee0c3f4614526.js?body=1" for ::1 at 2015-06-30 05:18:11 -0300
+
+
+Started GET "/assets/twitter/bootstrap/carousel.self-5d09995e01b647168888180d40e271f9a6759d68ae7ac029d7026af58813d376.js?body=1" for ::1 at 2015-06-30 05:18:11 -0300
+
+
+Started GET "/assets/twitter/bootstrap/affix.self-14e04bbe71282aa039322ab93e3a3a886ddede5f59a2f365f7c861f697bbeb21.js?body=1" for ::1 at 2015-06-30 05:18:11 -0300
+
+
+Started GET "/assets/twitter/bootstrap.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for ::1 at 2015-06-30 05:18:11 -0300
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-06-30 05:18:11 -0300
+
+
+Started GET "/assets/categories.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-06-30 05:18:11 -0300
+
+
+Started GET "/assets/departaments.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-06-30 05:18:11 -0300
+
+
+Started GET "/assets/customers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-06-30 05:18:11 -0300
+
+
+Started GET "/assets/bootstrap.self-fdc98dee79ee88255e10cac6caa91338165cb76cf0d263744d8d90011fc2ef8f.js?body=1" for ::1 at 2015-06-30 05:18:11 -0300
+
+
+Started GET "/assets/mytickets.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-06-30 05:18:11 -0300
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for ::1 at 2015-06-30 05:18:11 -0300
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-06-30 05:18:11 -0300
+
+
+Started POST "/categories" for ::1 at 2015-06-30 05:18:26 -0300
+Processing by CategoriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"qDTebEJykm3VCtQ80jRf4XHTpRIZo1SbK1seUBRo9vAdWRibkdcV/OKRww2LR6DBeqoAuinJV197VZEYSXbeFg==", "category"=>{"departaments_id"=>"3", "name"=>"Categoria 4"}, "commit"=>"Criar Category"}
+Unpermitted parameter: departaments_id
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (12.2ms)[0m  INSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)  [["name", "Categoria 4"], ["created_at", "2015-06-30 08:18:26.679351"], ["updated_at", "2015-06-30 08:18:26.679351"]]
+  [1m[36m (4.9ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/categories/4
+Completed 302 Found in 24ms (ActiveRecord: 17.2ms)
+
+
+Started GET "/categories/4" for ::1 at 2015-06-30 05:18:26 -0300
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mCategory Load (0.3ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1  [["id", 4]]
+  Rendered categories/show.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 267ms (Views: 264.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/categories" for ::1 at 2015-06-30 05:18:28 -0300
+Processing by CategoriesController#index as HTML
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered categories/index.html.erb within layouts/application (6.3ms)
+Completed 200 OK in 456ms (Views: 453.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/departaments" for ::1 at 2015-06-30 05:21:25 -0300
+Processing by DepartamentsController#index as HTML
+  [1m[35mDepartament Load (0.7ms)[0m  SELECT "departaments".* FROM "departaments"
+  Rendered departaments/index.html.erb within layouts/application (13.5ms)
+Completed 200 OK in 720ms (Views: 683.9ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/users" for ::1 at 2015-06-30 05:21:34 -0300
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  Rendered users/index.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 392ms (Views: 378.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/departaments" for ::1 at 2015-06-30 05:22:03 -0300
+Processing by DepartamentsController#index as HTML
+  [1m[35mDepartament Load (0.3ms)[0m  SELECT "departaments".* FROM "departaments"
+  Rendered departaments/index.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 258ms (Views: 256.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/categories" for ::1 at 2015-06-30 05:22:05 -0300
+Processing by CategoriesController#index as HTML
+  [1m[36mCategory Load (2.6ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered categories/index.html.erb within layouts/application (19.7ms)
+Completed 200 OK in 467ms (Views: 433.3ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/categories" for ::1 at 2015-06-30 05:24:59 -0300
+Processing by CategoriesController#index as HTML
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered categories/index.html.erb within layouts/application (8.1ms)
+Completed 200 OK in 671ms (Views: 668.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/twitter-bootstrap-static/bootstrap.self-77d963462a71b85aa6c39f0110994006fed4301154d937da52eb3884ff813853.css?body=1" for ::1 at 2015-06-30 05:25:00 -0300
+
+
+Started GET "/assets/twitter-bootstrap-static/fontawesome.self-c1a8821f7eb1b195061d7706930814ecc6bd44db4c68f208da5fe14845fa11ea.css?body=1" for ::1 at 2015-06-30 05:25:00 -0300
+
+
+Started GET "/assets/bootstrap_and_overrides.self-2cb3834583dfbaf0a39c7139750bf963e05d79cbe811126997e013400be5d8dc.css?body=1" for ::1 at 2015-06-30 05:25:00 -0300
+
+
+Started GET "/assets/categories.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-06-30 05:25:00 -0300
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-06-30 05:25:00 -0300
+
+
+Started GET "/assets/customers.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-06-30 05:25:00 -0300
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2015-06-30 05:25:00 -0300
+
+
+Started GET "/assets/mytickets.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-06-30 05:25:00 -0300
+
+
+Started GET "/assets/departaments.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-06-30 05:25:00 -0300
+
+
+Started GET "/assets/jquery_ujs.self-ca5248a2fad13d6bd58ea121318d642f195f0b2dd818b30615f785ff365e8d1f.js?body=1" for ::1 at 2015-06-30 05:25:00 -0300
+
+
+Started GET "/assets/twitter/bootstrap/transition.self-db278e3a8fa6249c16796b113ebd29e11ef4e2cd021618ed84895d524a4511e0.js?body=1" for ::1 at 2015-06-30 05:25:00 -0300
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-06-30 05:25:00 -0300
+
+
+Started GET "/assets/twitter/bootstrap/modal.self-ab1767545e27c0dbd36971e656ae4927171f673e3d932cdec2cbef39e991952b.js?body=1" for ::1 at 2015-06-30 05:25:00 -0300
+
+
+Started GET "/assets/twitter/bootstrap/alert.self-ebce91ec66c71bcee451ea7da9128fd1bf8faa02c6d22ea04c598423431e4c08.js?body=1" for ::1 at 2015-06-30 05:25:00 -0300
+
+
+Started GET "/assets/twitter/bootstrap/tab.self-7e3ee4a243bb416b5f0111a0be08f8547c5d72ba71fe4afe4a4a007f5cb4e10e.js?body=1" for ::1 at 2015-06-30 05:25:00 -0300
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy.self-bd0c6724cdc75302fe98dfeff923112b76c1673cf4a0752a7050b7feea15594c.js?body=1" for ::1 at 2015-06-30 05:25:00 -0300
+
+
+Started GET "/assets/twitter/bootstrap/tooltip.self-d7f9330825307d053f68da11bb9ddc9b070df72deef3d115f2f3d55f66b17457.js?body=1" for ::1 at 2015-06-30 05:25:00 -0300
+
+
+Started GET "/assets/twitter/bootstrap/popover.self-cd672ecad3b549e1dbd89bfd044e5812d6fdade56f42d48e3acee0c3f4614526.js?body=1" for ::1 at 2015-06-30 05:25:00 -0300
+
+
+Started GET "/assets/twitter/bootstrap/dropdown.self-8bb9309b6c24a4ba6b94026a049d25b13bdc0553b6fe83255c14a715ba624cc4.js?body=1" for ::1 at 2015-06-30 05:25:00 -0300
+
+
+Started GET "/assets/twitter/bootstrap/button.self-ceb562de883e04359bb2c06f07bdf6ecf065cc8a5027e2e58857c5e91b0b68e3.js?body=1" for ::1 at 2015-06-30 05:25:00 -0300
+
+
+Started GET "/assets/twitter/bootstrap/collapse.self-a87553101c955a01e2e8c81fad69a16582ddbf58fe95d5eb335dde5567af7647.js?body=1" for ::1 at 2015-06-30 05:25:00 -0300
+
+
+Started GET "/assets/twitter/bootstrap/affix.self-14e04bbe71282aa039322ab93e3a3a886ddede5f59a2f365f7c861f697bbeb21.js?body=1" for ::1 at 2015-06-30 05:25:00 -0300
+
+
+Started GET "/assets/twitter/bootstrap/carousel.self-5d09995e01b647168888180d40e271f9a6759d68ae7ac029d7026af58813d376.js?body=1" for ::1 at 2015-06-30 05:25:00 -0300
+
+
+Started GET "/assets/twitter/bootstrap.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for ::1 at 2015-06-30 05:25:00 -0300
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-06-30 05:25:00 -0300
+
+
+Started GET "/assets/categories.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-06-30 05:25:00 -0300
+
+
+Started GET "/assets/bootstrap.self-fdc98dee79ee88255e10cac6caa91338165cb76cf0d263744d8d90011fc2ef8f.js?body=1" for ::1 at 2015-06-30 05:25:00 -0300
+
+
+Started GET "/assets/customers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-06-30 05:25:00 -0300
+
+
+Started GET "/assets/departaments.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-06-30 05:25:00 -0300
+
+
+Started GET "/assets/mytickets.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-06-30 05:25:00 -0300
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-06-30 05:25:00 -0300
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for ::1 at 2015-06-30 05:25:00 -0300
+
+
+Started GET "/categories/new" for ::1 at 2015-06-30 05:25:02 -0300
+Processing by CategoriesController#new as HTML
+  [1m[36mDepartament Load (0.3ms)[0m  [1mSELECT "departaments".* FROM "departaments"[0m
+  Rendered categories/_form.html.erb (7.2ms)
+  Rendered categories/new.html.erb within layouts/application (20.7ms)
+Completed 200 OK in 435ms (Views: 432.3ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/categories" for ::1 at 2015-06-30 05:25:05 -0300
+Processing by CategoriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7v0w5lG/k9qHxtGiZmPS7YMyHuzHyVt462C8vwB4kn5bkPYRghoUS7BdxpM/EC3NiEu7RPejWLy7bjP3XWa6mA==", "category"=>{"departaments_id"=>"1", "name"=>"egwaet"}, "commit"=>"Criar Category"}
+Unpermitted parameter: departaments_id
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (19.6ms)[0m  [1mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "egwaet"], ["created_at", "2015-06-30 08:25:05.287166"], ["updated_at", "2015-06-30 08:25:05.287166"]]
+  [1m[35m (3.5ms)[0m  commit transaction
+Redirected to http://localhost:3000/categories/5
+Completed 302 Found in 32ms (ActiveRecord: 23.2ms)
+
+
+Started GET "/categories/5" for ::1 at 2015-06-30 05:25:05 -0300
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", 5]]
+  Rendered categories/show.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 490ms (Views: 486.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/categories" for ::1 at 2015-06-30 05:25:07 -0300
+Processing by CategoriesController#index as HTML
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered categories/index.html.erb within layouts/application (11.7ms)
+Completed 200 OK in 443ms (Views: 440.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/categories" for ::1 at 2015-06-30 05:26:30 -0300
+Processing by CategoriesController#index as HTML
+  [1m[36mCategory Load (0.7ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered categories/index.html.erb within layouts/application (30.3ms)
+Completed 200 OK in 471ms (Views: 447.2ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/assets/twitter-bootstrap-static/fontawesome.self-c1a8821f7eb1b195061d7706930814ecc6bd44db4c68f208da5fe14845fa11ea.css?body=1" for ::1 at 2015-06-30 05:26:31 -0300
+
+
+Started GET "/assets/twitter-bootstrap-static/bootstrap.self-77d963462a71b85aa6c39f0110994006fed4301154d937da52eb3884ff813853.css?body=1" for ::1 at 2015-06-30 05:26:31 -0300
+
+
+Started GET "/assets/bootstrap_and_overrides.self-2cb3834583dfbaf0a39c7139750bf963e05d79cbe811126997e013400be5d8dc.css?body=1" for ::1 at 2015-06-30 05:26:31 -0300
+
+
+Started GET "/assets/categories.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-06-30 05:26:31 -0300
+
+
+Started GET "/assets/customers.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-06-30 05:26:31 -0300
+
+
+Started GET "/assets/mytickets.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-06-30 05:26:31 -0300
+
+
+Started GET "/assets/departaments.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-06-30 05:26:31 -0300
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-06-30 05:26:31 -0300
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-06-30 05:26:31 -0300
+
+
+Started GET "/assets/jquery_ujs.self-ca5248a2fad13d6bd58ea121318d642f195f0b2dd818b30615f785ff365e8d1f.js?body=1" for ::1 at 2015-06-30 05:26:31 -0300
+
+
+Started GET "/assets/twitter/bootstrap/modal.self-ab1767545e27c0dbd36971e656ae4927171f673e3d932cdec2cbef39e991952b.js?body=1" for ::1 at 2015-06-30 05:26:32 -0300
+
+
+Started GET "/assets/twitter/bootstrap/alert.self-ebce91ec66c71bcee451ea7da9128fd1bf8faa02c6d22ea04c598423431e4c08.js?body=1" for ::1 at 2015-06-30 05:26:32 -0300
+
+
+Started GET "/assets/twitter/bootstrap/tab.self-7e3ee4a243bb416b5f0111a0be08f8547c5d72ba71fe4afe4a4a007f5cb4e10e.js?body=1" for ::1 at 2015-06-30 05:26:32 -0300
+
+
+Started GET "/assets/twitter/bootstrap/transition.self-db278e3a8fa6249c16796b113ebd29e11ef4e2cd021618ed84895d524a4511e0.js?body=1" for ::1 at 2015-06-30 05:26:32 -0300
+
+
+Started GET "/assets/twitter/bootstrap/dropdown.self-8bb9309b6c24a4ba6b94026a049d25b13bdc0553b6fe83255c14a715ba624cc4.js?body=1" for ::1 at 2015-06-30 05:26:32 -0300
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy.self-bd0c6724cdc75302fe98dfeff923112b76c1673cf4a0752a7050b7feea15594c.js?body=1" for ::1 at 2015-06-30 05:26:32 -0300
+
+
+Started GET "/assets/twitter/bootstrap/popover.self-cd672ecad3b549e1dbd89bfd044e5812d6fdade56f42d48e3acee0c3f4614526.js?body=1" for ::1 at 2015-06-30 05:26:32 -0300
+
+
+Started GET "/assets/twitter/bootstrap/button.self-ceb562de883e04359bb2c06f07bdf6ecf065cc8a5027e2e58857c5e91b0b68e3.js?body=1" for ::1 at 2015-06-30 05:26:32 -0300
+
+
+Started GET "/assets/twitter/bootstrap/collapse.self-a87553101c955a01e2e8c81fad69a16582ddbf58fe95d5eb335dde5567af7647.js?body=1" for ::1 at 2015-06-30 05:26:32 -0300
+
+
+Started GET "/assets/twitter/bootstrap/carousel.self-5d09995e01b647168888180d40e271f9a6759d68ae7ac029d7026af58813d376.js?body=1" for ::1 at 2015-06-30 05:26:32 -0300
+
+
+Started GET "/assets/twitter/bootstrap/tooltip.self-d7f9330825307d053f68da11bb9ddc9b070df72deef3d115f2f3d55f66b17457.js?body=1" for ::1 at 2015-06-30 05:26:32 -0300
+
+
+Started GET "/assets/twitter/bootstrap/affix.self-14e04bbe71282aa039322ab93e3a3a886ddede5f59a2f365f7c861f697bbeb21.js?body=1" for ::1 at 2015-06-30 05:26:32 -0300
+
+
+Started GET "/assets/twitter/bootstrap.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for ::1 at 2015-06-30 05:26:32 -0300
+
+
+Started GET "/assets/customers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-06-30 05:26:32 -0300
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-06-30 05:26:32 -0300
+
+
+Started GET "/assets/bootstrap.self-fdc98dee79ee88255e10cac6caa91338165cb76cf0d263744d8d90011fc2ef8f.js?body=1" for ::1 at 2015-06-30 05:26:32 -0300
+
+
+Started GET "/assets/categories.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-06-30 05:26:32 -0300
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2015-06-30 05:26:32 -0300
+
+
+Started GET "/assets/departaments.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-06-30 05:26:32 -0300
+
+
+Started GET "/assets/mytickets.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-06-30 05:26:32 -0300
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-06-30 05:26:32 -0300
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for ::1 at 2015-06-30 05:26:32 -0300
+
+
+Started GET "/categories/new" for ::1 at 2015-06-30 05:26:33 -0300
+Processing by CategoriesController#new as HTML
+  [1m[35mDepartament Load (0.3ms)[0m  SELECT "departaments".* FROM "departaments"
+  Rendered categories/_form.html.erb (28.0ms)
+  Rendered categories/new.html.erb within layouts/application (50.7ms)
+Completed 200 OK in 505ms (Views: 500.7ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/categories" for ::1 at 2015-06-30 05:26:36 -0300
+Processing by CategoriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Swz0JVqlY19UMpF7gwKR2TAz9L8YII1D9zvSC6NJiLj+YTLSiQDkzmOphkracW75O0pRFyhKjoenNV1D/legXg==", "category"=>{"departaments_id"=>"1", "name"=>"rryaq"}, "commit"=>"Criar Category"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "categories" ("name", "departaments_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "rryaq"], ["departaments_id", 1], ["created_at", "2015-06-30 08:26:36.356670"], ["updated_at", "2015-06-30 08:26:36.356670"]]
+  [1m[36m (3.8ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/categories/6
+Completed 302 Found in 19ms (ActiveRecord: 4.5ms)
+
+
+Started GET "/categories/6" for ::1 at 2015-06-30 05:26:36 -0300
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[35mCategory Load (0.4ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1  [["id", 6]]
+  Rendered categories/show.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 435ms (Views: 408.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/categories" for ::1 at 2015-06-30 05:26:39 -0300
+Processing by CategoriesController#index as HTML
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered categories/index.html.erb within layouts/application (8.8ms)
+Completed 200 OK in 411ms (Views: 409.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/categories" for ::1 at 2015-06-30 05:27:01 -0300
+Processing by CategoriesController#index as HTML
+  [1m[35mCategory Load (0.8ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered categories/index.html.erb within layouts/application (24.9ms)
+Completed 200 OK in 526ms (Views: 519.9ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/assets/twitter-bootstrap-static/fontawesome.self-c1a8821f7eb1b195061d7706930814ecc6bd44db4c68f208da5fe14845fa11ea.css?body=1" for ::1 at 2015-06-30 05:27:02 -0300
+
+
+Started GET "/assets/bootstrap_and_overrides.self-2cb3834583dfbaf0a39c7139750bf963e05d79cbe811126997e013400be5d8dc.css?body=1" for ::1 at 2015-06-30 05:27:02 -0300
+
+
+Started GET "/assets/categories.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-06-30 05:27:02 -0300
+
+
+Started GET "/assets/customers.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-06-30 05:27:02 -0300
+
+
+Started GET "/assets/mytickets.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-06-30 05:27:02 -0300
+
+
+Started GET "/assets/departaments.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-06-30 05:27:02 -0300
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-06-30 05:27:02 -0300
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2015-06-30 05:27:02 -0300
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-06-30 05:27:02 -0300
+
+
+Started GET "/assets/twitter-bootstrap-static/bootstrap.self-77d963462a71b85aa6c39f0110994006fed4301154d937da52eb3884ff813853.css?body=1" for ::1 at 2015-06-30 05:27:02 -0300
+
+
+Started GET "/assets/jquery_ujs.self-ca5248a2fad13d6bd58ea121318d642f195f0b2dd818b30615f785ff365e8d1f.js?body=1" for ::1 at 2015-06-30 05:27:02 -0300
+
+
+Started GET "/assets/twitter/bootstrap/transition.self-db278e3a8fa6249c16796b113ebd29e11ef4e2cd021618ed84895d524a4511e0.js?body=1" for ::1 at 2015-06-30 05:27:02 -0300
+
+
+Started GET "/assets/twitter/bootstrap/modal.self-ab1767545e27c0dbd36971e656ae4927171f673e3d932cdec2cbef39e991952b.js?body=1" for ::1 at 2015-06-30 05:27:02 -0300
+
+
+Started GET "/assets/twitter/bootstrap/alert.self-ebce91ec66c71bcee451ea7da9128fd1bf8faa02c6d22ea04c598423431e4c08.js?body=1" for ::1 at 2015-06-30 05:27:02 -0300
+
+
+Started GET "/assets/twitter/bootstrap/dropdown.self-8bb9309b6c24a4ba6b94026a049d25b13bdc0553b6fe83255c14a715ba624cc4.js?body=1" for ::1 at 2015-06-30 05:27:02 -0300
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy.self-bd0c6724cdc75302fe98dfeff923112b76c1673cf4a0752a7050b7feea15594c.js?body=1" for ::1 at 2015-06-30 05:27:02 -0300
+
+
+Started GET "/assets/twitter/bootstrap/tab.self-7e3ee4a243bb416b5f0111a0be08f8547c5d72ba71fe4afe4a4a007f5cb4e10e.js?body=1" for ::1 at 2015-06-30 05:27:02 -0300
+
+
+Started GET "/assets/twitter/bootstrap/tooltip.self-d7f9330825307d053f68da11bb9ddc9b070df72deef3d115f2f3d55f66b17457.js?body=1" for ::1 at 2015-06-30 05:27:02 -0300
+
+
+Started GET "/assets/twitter/bootstrap/popover.self-cd672ecad3b549e1dbd89bfd044e5812d6fdade56f42d48e3acee0c3f4614526.js?body=1" for ::1 at 2015-06-30 05:27:02 -0300
+
+
+Started GET "/assets/twitter/bootstrap/button.self-ceb562de883e04359bb2c06f07bdf6ecf065cc8a5027e2e58857c5e91b0b68e3.js?body=1" for ::1 at 2015-06-30 05:27:02 -0300
+
+
+Started GET "/assets/twitter/bootstrap/collapse.self-a87553101c955a01e2e8c81fad69a16582ddbf58fe95d5eb335dde5567af7647.js?body=1" for ::1 at 2015-06-30 05:27:02 -0300
+
+
+Started GET "/assets/twitter/bootstrap/carousel.self-5d09995e01b647168888180d40e271f9a6759d68ae7ac029d7026af58813d376.js?body=1" for ::1 at 2015-06-30 05:27:02 -0300
+
+
+Started GET "/assets/twitter/bootstrap/affix.self-14e04bbe71282aa039322ab93e3a3a886ddede5f59a2f365f7c861f697bbeb21.js?body=1" for ::1 at 2015-06-30 05:27:02 -0300
+
+
+Started GET "/assets/twitter/bootstrap.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for ::1 at 2015-06-30 05:27:02 -0300
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-06-30 05:27:02 -0300
+
+
+Started GET "/assets/bootstrap.self-fdc98dee79ee88255e10cac6caa91338165cb76cf0d263744d8d90011fc2ef8f.js?body=1" for ::1 at 2015-06-30 05:27:02 -0300
+
+
+Started GET "/assets/categories.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-06-30 05:27:03 -0300
+
+
+Started GET "/assets/customers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-06-30 05:27:03 -0300
+
+
+Started GET "/assets/mytickets.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-06-30 05:27:03 -0300
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-06-30 05:27:03 -0300
+
+
+Started GET "/assets/departaments.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-06-30 05:27:03 -0300
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for ::1 at 2015-06-30 05:27:03 -0300
+
+
+Started GET "/categories/new" for ::1 at 2015-06-30 05:27:04 -0300
+Processing by CategoriesController#new as HTML
+  [1m[36mDepartament Load (0.3ms)[0m  [1mSELECT "departaments".* FROM "departaments"[0m
+  Rendered categories/_form.html.erb (15.5ms)
+  Rendered categories/new.html.erb within layouts/application (21.7ms)
+Completed 200 OK in 453ms (Views: 451.0ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/categories" for ::1 at 2015-06-30 05:27:09 -0300
+Processing by CategoriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"S41w4oE/TMgFT3qDYzn7ubK4FTLEWJbFv8cgo/zNs27+4LYVUprLWTLUbbI6SgSZucGwmvQylQHvya/rodObiA==", "category"=>{"departaments_id"=>"2", "name"=>"e4yq4eye4y"}, "commit"=>"Criar Category"}
+Unpermitted parameter: departaments_id
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (3.4ms)[0m  [1mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "e4yq4eye4y"], ["created_at", "2015-06-30 08:27:09.859694"], ["updated_at", "2015-06-30 08:27:09.859694"]]
+  [1m[35m (3.1ms)[0m  commit transaction
+Redirected to http://localhost:3000/categories/7
+Completed 302 Found in 25ms (ActiveRecord: 6.8ms)
+
+
+Started GET "/categories/7" for ::1 at 2015-06-30 05:27:09 -0300
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", 7]]
+  Rendered categories/show.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 484ms (Views: 481.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/categories" for ::1 at 2015-06-30 05:27:12 -0300
+Processing by CategoriesController#index as HTML
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered categories/index.html.erb within layouts/application (10.2ms)
+Completed 200 OK in 368ms (Views: 366.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/mytickets" for ::1 at 2015-06-30 05:27:14 -0300
+Processing by MyticketsController#index as HTML
+  [1m[36mMyticket Load (0.3ms)[0m  [1mSELECT "mytickets".* FROM "mytickets"[0m
+  Rendered mytickets/index.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 377ms (Views: 333.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/mytickets/new" for ::1 at 2015-06-30 05:27:15 -0300
+Processing by MyticketsController#new as HTML
+  [1m[35mDepartament Load (0.3ms)[0m  SELECT "departaments".* FROM "departaments"
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered mytickets/_form.html.erb (27.6ms)
+  Rendered mytickets/new.html.erb within layouts/application (223.2ms)
+Completed 200 OK in 653ms (Views: 609.3ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/categories" for ::1 at 2015-06-30 05:27:22 -0300
+Processing by CategoriesController#index as HTML
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered categories/index.html.erb within layouts/application (8.5ms)
+Completed 200 OK in 438ms (Views: 437.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/departaments" for ::1 at 2015-06-30 05:27:24 -0300
+Processing by DepartamentsController#index as HTML
+  [1m[36mDepartament Load (0.2ms)[0m  [1mSELECT "departaments".* FROM "departaments"[0m
+  Rendered departaments/index.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 444ms (Views: 442.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/mytickets" for ::1 at 2015-06-30 05:27:27 -0300
+Processing by MyticketsController#index as HTML
+  [1m[35mMyticket Load (0.4ms)[0m  SELECT "mytickets".* FROM "mytickets"
+  Rendered mytickets/index.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 237ms (Views: 235.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/mytickets/new" for ::1 at 2015-06-30 05:27:29 -0300
+Processing by MyticketsController#new as HTML
+  [1m[36mDepartament Load (0.3ms)[0m  [1mSELECT "departaments".* FROM "departaments"[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered mytickets/_form.html.erb (12.0ms)
+  Rendered mytickets/new.html.erb within layouts/application (15.0ms)
+Completed 200 OK in 426ms (Views: 424.0ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/mytickets" for ::1 at 2015-06-30 05:27:36 -0300
+Processing by MyticketsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/bPcTNssaP7SYYebtjlu60yxKnvU3qFWJTz/PG5MSdtI3hq7CInvb+X6kKrvSpHLR8iP0+S0opJ1MnB0M1JhPQ==", "myticket"=>{"id_customer"=>"", "subject"=>"", "departaments_id"=>"2", "categories_id"=>"4", "category"=>"", "mensage"=>"", "upload"=>"", "status"=>"", "date"=>"", "deadline"=>""}, "commit"=>"Criar Myticket"}
+Unpermitted parameters: departaments_id, categories_id
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms)
+
+ActiveRecord::AssociationTypeMismatch (Category(#70154311462480) expected, got String(#70154277235740)):
+  app/controllers/mytickets_controller.rb:27:in `create'
+
+
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_source.erb (10.4ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (115.5ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.7ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (163.9ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.1.3/lib/web_console/templates/_markup.html.erb (0.8ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.1.3/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.6ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.1.3/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.1.3/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.1.3/lib/web_console/templates/console.js.erb within layouts/javascript (42.5ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.1.3/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.1.3/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.1.3/lib/web_console/templates/index.html.erb (101.2ms)
+
+
+Started GET "/categories" for ::1 at 2015-06-30 05:27:44 -0300
+Processing by CategoriesController#index as HTML
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered categories/index.html.erb within layouts/application (8.9ms)
+Completed 200 OK in 381ms (Views: 379.2ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/categories/4" for ::1 at 2015-06-30 05:27:54 -0300
+Processing by CategoriesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"//yb0F1Ldfhkc4QrprAoCmAHockFlMu4NNDz0UpIgkRKkV0nju7yaVPokxr/w9cqa34EYTX+yHxk3nyZF1aqog==", "id"=>"4"}
+  [1m[35mCategory Load (0.2ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  DELETE FROM "categories" WHERE "categories"."id" = ?  [["id", 4]]
+  [1m[36m (88.7ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/categories
+Completed 302 Found in 95ms (ActiveRecord: 89.5ms)
+
+
+Started GET "/categories" for ::1 at 2015-06-30 05:27:54 -0300
+Processing by CategoriesController#index as HTML
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered categories/index.html.erb within layouts/application (7.8ms)
+Completed 200 OK in 1075ms (Views: 1073.3ms | ActiveRecord: 0.4ms)
+
+
+Started DELETE "/categories/6" for ::1 at 2015-06-30 05:27:59 -0300
+Processing by CategoriesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"JDOvHOtAhTVoIgUgwNbyCsquZRJJueHNosQXfcw9ld+RXmnrOOUCpF+5EhGZpQ0qwdfAunnT4gnyypg1kSO9OQ==", "id"=>"6"}
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mDELETE FROM "categories" WHERE "categories"."id" = ?[0m  [["id", 6]]
+  [1m[35m (54.0ms)[0m  commit transaction
+Redirected to http://localhost:3000/categories
+Completed 302 Found in 62ms (ActiveRecord: 54.7ms)
+
+
+Started GET "/categories" for ::1 at 2015-06-30 05:27:59 -0300
+Processing by CategoriesController#index as HTML
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered categories/index.html.erb within layouts/application (7.8ms)
+Completed 200 OK in 408ms (Views: 406.2ms | ActiveRecord: 0.4ms)
+
+
+Started DELETE "/categories/7" for ::1 at 2015-06-30 05:28:03 -0300
+Processing by CategoriesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"zLgpex84YJm7O+OXpD+8vsEGn1pkOiZXQtklunN3s7Z51e+MzJ3nCIyg9Kb9TEOeyn868lRQJZMS16ryLmmbUA==", "id"=>"7"}
+  [1m[35mCategory Load (0.2ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1  [["id", 7]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  DELETE FROM "categories" WHERE "categories"."id" = ?  [["id", 7]]
+  [1m[36m (2.6ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/categories
+Completed 302 Found in 10ms (ActiveRecord: 3.4ms)
+
+
+Started GET "/categories" for ::1 at 2015-06-30 05:28:03 -0300
+Processing by CategoriesController#index as HTML
+  [1m[35mCategory Load (1.5ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered categories/index.html.erb within layouts/application (10.4ms)
+Completed 200 OK in 382ms (Views: 379.8ms | ActiveRecord: 1.5ms)
+
+
+Started DELETE "/categories/5" for ::1 at 2015-06-30 05:28:06 -0300
+Processing by CategoriesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"QW0ERi4Ay9By+Z+CsRmvE0hyeAHbRUP+jrslN7+M3ST0AMKx/aVMQUViiLPoalAzQwvdqesvQDretap/4pL1wg==", "id"=>"5"}
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mDELETE FROM "categories" WHERE "categories"."id" = ?[0m  [["id", 5]]
+  [1m[35m (34.4ms)[0m  commit transaction
+Redirected to http://localhost:3000/categories
+Completed 302 Found in 39ms (ActiveRecord: 35.0ms)
+
+
+Started GET "/categories" for ::1 at 2015-06-30 05:28:06 -0300
+Processing by CategoriesController#index as HTML
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered categories/index.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 356ms (Views: 355.2ms | ActiveRecord: 0.3ms)
