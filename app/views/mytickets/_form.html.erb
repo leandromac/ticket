@@ -1,57 +1,87 @@
-<%= form_for(@myticket) do |f| %>
-  <% if @myticket.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@myticket.errors.count, "error") %> prohibited this myticket from being saved:</h2>
+<%= form_for @myticket, :html => { :class => "form-horizontal myticket" } do |f| %>
 
-      <ul>
-      <% @myticket.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+    <% if @myticket.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@myticket.errors.count, "error") %> prohibited this myticket from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @myticket.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :id_customer %><br>
-    <%= f.text_field :id_customer %>
+  <div class="control-group">
+    <%= f.label :id_customer, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :id_customer, :class => 'form-control' %>
+    </div>
+    <%= error_span(@myticket[:id_customer]) %>
   </div>
-  <div class="field">
-    <%= f.label :subject %><br>
-    <%= f.text_field :subject %>
+  <div class="control-group">
+    <%= f.label :subject, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :subject, :class => 'form-control' %>
+    </div>
+    <%= error_span(@myticket[:subject]) %>
   </div>
-  <div class="field">
-    <%= f.label :departament %><br>
-    <%= f.text_field :departament %>
+  <div class="control-group">
+    <%= f.label :departament, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :departament, :class => 'form-control' %>
+    </div>
+    <%= error_span(@myticket[:departament]) %>
   </div>
-  <div class="field">
-    <%= f.label :category %><br>
-    <%= f.text_field :category %>
+  <div class="control-group">
+    <%= f.label :category, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :category, :class => 'form-control' %>
+    </div>
+    <%= error_span(@myticket[:category]) %>
   </div>
-  <div class="field">
-    <%= f.label :category %><br>
-    <%= f.text_field :category %>
+  <div class="control-group">
+    <%= f.label :mensage, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :mensage, :class => 'form-control' %>
+    </div>
+    <%= error_span(@myticket[:mensage]) %>
   </div>
-  <div class="field">
-    <%= f.label :mensage %><br>
-    <%= f.text_area :mensage %>
+  <div class="control-group">
+    <%= f.label :upload, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :upload, :class => 'form-control' %>
+    </div>
+    <%= error_span(@myticket[:upload]) %>
   </div>
-  <div class="field">
-    <%= f.label :upload %><br>
-    <%= f.text_field :upload %>
+  <div class="control-group">
+    <%= f.label :status, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :status, :class => 'form-control' %>
+    </div>
+    <%= error_span(@myticket[:status]) %>
   </div>
-  <div class="field">
-    <%= f.label :status %><br>
-    <%= f.text_field :status %>
+  <div class="control-group">
+    <%= f.label :date, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :date, :class => 'form-control' %>
+    </div>
+    <%= error_span(@myticket[:date]) %>
   </div>
-  <div class="field">
-    <%= f.label :date %><br>
-    <%= f.date_select :date %>
+  <div class="control-group">
+    <%= f.label :deadline, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :deadline, :class => 'form-control' %>
+    </div>
+    <%= error_span(@myticket[:deadline]) %>
   </div>
-  <div class="field">
-    <%= f.label :deadline %><br>
-    <%= f.date_select :deadline %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+
+
+  <%= f.submit nil, :class => 'btn btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+            mytickets_path, :class => 'btn btn-default' %>
+
 <% end %>

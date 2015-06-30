@@ -1,54 +1,35 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = Myticket -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
 
-<p>
-  <strong>Id customer:</strong>
-  <%= @myticket.id_customer %>
-</p>
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:id_customer) %>:</strong></dt>
+  <dd><%= @myticket.id_customer %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:subject) %>:</strong></dt>
+  <dd><%= @myticket.subject %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:departament) %>:</strong></dt>
+  <dd><%= @myticket.departament %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:category) %>:</strong></dt>
+  <dd><%= @myticket.category %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:mensage) %>:</strong></dt>
+  <dd><%= @myticket.mensage %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:upload) %>:</strong></dt>
+  <dd><%= @myticket.upload %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:status) %>:</strong></dt>
+  <dd><%= @myticket.status %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:date) %>:</strong></dt>
+  <dd><%= @myticket.date %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:deadline) %>:</strong></dt>
+  <dd><%= @myticket.deadline %></dd>
+</dl>
 
-<p>
-  <strong>Subject:</strong>
-  <%= @myticket.subject %>
-</p>
-
-<p>
-  <strong>Departament:</strong>
-  <%= @myticket.departament %>
-</p>
-
-<p>
-  <strong>Category:</strong>
-  <%= @myticket.category %>
-</p>
-
-<p>
-  <strong>Category:</strong>
-  <%= @myticket.category %>
-</p>
-
-<p>
-  <strong>Mensage:</strong>
-  <%= @myticket.mensage %>
-</p>
-
-<p>
-  <strong>Upload:</strong>
-  <%= @myticket.upload %>
-</p>
-
-<p>
-  <strong>Status:</strong>
-  <%= @myticket.status %>
-</p>
-
-<p>
-  <strong>Date:</strong>
-  <%= @myticket.date %>
-</p>
-
-<p>
-  <strong>Deadline:</strong>
-  <%= @myticket.deadline %>
-</p>
-
-<%= link_to 'Edit', edit_myticket_path(@myticket) %> |
-<%= link_to 'Back', mytickets_path %>
+<%= link_to t('.back', :default => t("helpers.links.back")),
+              mytickets_path, :class => 'btn btn-default'  %>
+<%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_myticket_path(@myticket), :class => 'btn btn-default' %>
+<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              myticket_path(@myticket),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>

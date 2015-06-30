@@ -11,7 +11,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150630020423) do
+ActiveRecord::Schema.define(version: 20150630022235) do
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "departament"
+    t.string   "name"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "customers", force: :cascade do |t|
+    t.string   "name"
+    t.string   "emails"
+    t.string   "phone"
+    t.string   "address"
+    t.string   "cpf_cnpj"
+    t.string   "logo"
+    t.string   "website"
+    t.string   "facebook"
+    t.string   "customer_since"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  create_table "departaments", force: :cascade do |t|
+    t.string   "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "mytickets", force: :cascade do |t|
     t.string   "id_customer"
@@ -23,6 +50,16 @@ ActiveRecord::Schema.define(version: 20150630020423) do
     t.string   "status"
     t.date     "date"
     t.date     "deadline"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "phone"
+    t.string   "departament"
+    t.string   "access"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end

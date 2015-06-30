@@ -1,0 +1,87 @@
+<%= form_for @customer, :html => { :class => "form-horizontal customer" } do |f| %>
+
+    <% if @customer.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@customer.errors.count, "error") %> prohibited this customer from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @customer.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="control-group">
+    <%= f.label :name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :name, :class => 'form-control' %>
+    </div>
+    <%= error_span(@customer[:name]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :emails, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :emails, :class => 'form-control' %>
+    </div>
+    <%= error_span(@customer[:emails]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :phone, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :phone, :class => 'form-control' %>
+    </div>
+    <%= error_span(@customer[:phone]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :address, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :address, :class => 'form-control' %>
+    </div>
+    <%= error_span(@customer[:address]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :cpf_cnpj, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :cpf_cnpj, :class => 'form-control' %>
+    </div>
+    <%= error_span(@customer[:cpf_cnpj]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :logo, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :logo, :class => 'form-control' %>
+    </div>
+    <%= error_span(@customer[:logo]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :website, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :website, :class => 'form-control' %>
+    </div>
+    <%= error_span(@customer[:website]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :facebook, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :facebook, :class => 'form-control' %>
+    </div>
+    <%= error_span(@customer[:facebook]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :customer_since, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :customer_since, :class => 'form-control' %>
+    </div>
+    <%= error_span(@customer[:customer_since]) %>
+  </div>
+
+
+  <%= f.submit nil, :class => 'btn btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+            customers_path, :class => 'btn btn-default' %>
+
+<% end %>
