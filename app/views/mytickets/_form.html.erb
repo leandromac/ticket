@@ -32,9 +32,16 @@
   <div class="control-group">
     <%= f.label :departament, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :departament, :class => 'form-control' %>
+    <%= f.select :departaments_id, Departament.all.map {|i| [i.title, i.id] }, :class => 'form-control' %>
     </div>
     <%= error_span(@myticket[:departament]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :category, :class => 'control-label' %>
+    <div class="controls">
+    <%= f.select :categories_id, Category.all.map {|i| [i.name, i.id] }, :class => 'form-control' %>
+    </div>
+    <%= error_span(@myticket[:categories]) %>
   </div>
   <div class="control-group">
     <%= f.label :category, :class => 'control-label' %>
