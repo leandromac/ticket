@@ -1,0 +1,2 @@
+module MyticketsHelper
+end
