@@ -28,7 +28,7 @@
         <td><%= myticket.departament %></td>
         <td><%= myticket.category %></td>
         <td><%= myticket.mensage %></td>
-        <td><%= myticket.upload %></td>
+        <td><%= link_to 'Baixar anexo', myticket.upload_url %></td>
         <td><%= myticket.status %></td>
         <td><%= myticket.date %></td>
         <td><%= myticket.deadline %></td>

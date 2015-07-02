@@ -53,14 +53,14 @@
   <div class="control-group">
     <%= f.label :mensage, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :mensage, :class => 'form-control' %>
+      <%= f.text_area :mensage, :class => 'form-control' %>
     </div>
     <%= error_span(@myticket[:mensage]) %>
   </div>
   <div class="control-group">
     <%= f.label :upload, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :upload, :class => 'form-control' %>
+      <%= f.file_field :upload, :class => 'form-control' %>
     </div>
     <%= error_span(@myticket[:upload]) %>
   </div>
