@@ -1,0 +1,5 @@
+TODO:
+
+1. Corrigir as chaves estrangeiras segundo esse commit: https://github.com/leandromac/ticket/commit/9cd2819a13fce55d1e904e378a0b65acaff759de
+2. Adicionar algumas validações nos modelos
+
