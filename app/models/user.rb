@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  validates :email, presence: true
+  validates :email, :name, :phone, :departament, :access, presence: true
 
   validate :valid_email
 
