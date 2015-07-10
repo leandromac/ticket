@@ -5,7 +5,7 @@
 
 <dl class="dl-horizontal">
   <dt><strong><%= model_class.human_attribute_name(:id_customer) %>:</strong></dt>
-  <dd><%= @myticket.id_customer %></dd>
+  <dd><%= @myticket.customer.try(:email) %></dd>
   <dt><strong><%= model_class.human_attribute_name(:subject) %>:</strong></dt>
   <dd><%= @myticket.subject %></dd>
   <dt><strong><%= model_class.human_attribute_name(:departament) %>:</strong></dt>

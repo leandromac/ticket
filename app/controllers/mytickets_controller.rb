@@ -4,7 +4,7 @@ class MyticketsController < ApplicationController
   # GET /mytickets
   # GET /mytickets.json
   def index
-    @mytickets = Myticket.all
+    @mytickets = current_user.mytickets
   end
 
   # GET /mytickets/1
@@ -25,6 +25,7 @@ class MyticketsController < ApplicationController
   # POST /mytickets.json
   def create
     @myticket = Myticket.new(myticket_params)
+    @myticket.customer = current_user
 
     respond_to do |format|
       if @myticket.save
