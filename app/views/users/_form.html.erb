@@ -15,19 +15,34 @@
     </div>
   <% end %>
 
-  <div class="control-group col-md-6">
+  <div class="control-group col-md-11">
     <%= f.label :name, :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :name, :class => 'form-control' %>
     </div>
     <%= error_span(@user[:name]) %>
   </div>
+  <div class="control-group col-md-1">
+    <%= f.label :id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :id, :class => 'form-control', :id => 'disabledInput', disabled: true %>
+    </div>
+    <%= error_span(@user[:id]) %>
+  </div>
   <div class="control-group col-md-6">
     <%= f.label :email, :class => 'control-label' %>
     <div class="controls">
+
       <%= f.text_field :email, :class => 'form-control' %>
     </div>
     <%= error_span(@user[:email]) %>
+  </div>
+  <div class="control-group col-md-6">
+    <%= f.label :phone, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :phone, :class => 'form-control' %>
+    </div>
+    <%= error_span(@user[:phone]) %>
   </div>
   <div class="control-group col-md-6">
     <%= f.label :password, :class => 'control-label' %>
@@ -43,13 +58,6 @@
       <%= f.password_field :password_confirmation, :class => 'form-control' %>
     </div>
     <%= error_span(@user[:password_confirmation]) %>
-  </div>
-  <div class="control-group col-md-6">
-    <%= f.label :phone, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :phone, :class => 'form-control' %>
-    </div>
-    <%= error_span(@user[:phone]) %>
   </div>
   <div class="control-group col-md-6">
     <%= f.label :departament, :class => 'control-label' %>
