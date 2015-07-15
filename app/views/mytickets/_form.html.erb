@@ -16,13 +16,6 @@
   <% end %>
 
   <div class="control-group">
-    <%= f.label :id_customer, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :id_customer, :class => 'form-control' %>
-    </div>
-    <%= error_span(@myticket[:id_customer]) %>
-  </div>
-  <div class="control-group">
     <%= f.label :subject, :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :subject, :class => 'form-control' %>
@@ -44,13 +37,6 @@
     <%= error_span(@myticket[:categories]) %>
   </div>
   <div class="control-group">
-    <%= f.label :category, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :category, :class => 'form-control' %>
-    </div>
-    <%= error_span(@myticket[:category]) %>
-  </div>
-  <div class="control-group">
     <%= f.label :mensage, :class => 'control-label' %>
     <div class="controls">
       <%= f.text_area :mensage, :class => 'form-control' %>
@@ -64,28 +50,6 @@
     </div>
     <%= error_span(@myticket[:upload]) %>
   </div>
-  <div class="control-group">
-    <%= f.label :status, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :status, :class => 'form-control' %>
-    </div>
-    <%= error_span(@myticket[:status]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label :date, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :date, :class => 'form-control' %>
-    </div>
-    <%= error_span(@myticket[:date]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label :deadline, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :deadline, :class => 'form-control' %>
-    </div>
-    <%= error_span(@myticket[:deadline]) %>
-  </div>
-
 
   <%= f.submit nil, :class => 'btn btn-primary' %>
   <%= link_to t('.cancel', :default => t("helpers.links.cancel")),

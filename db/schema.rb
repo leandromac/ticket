@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150710020017) do
+ActiveRecord::Schema.define(version: 20150715004908) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -44,12 +44,9 @@ ActiveRecord::Schema.define(version: 20150710020017) do
   create_table "mytickets", force: :cascade do |t|
     t.string   "id_customer"
     t.string   "subject"
-    t.string   "departament"
-    t.string   "category"
     t.text     "mensage"
     t.string   "upload"
     t.string   "status"
-    t.date     "date"
     t.date     "deadline"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
