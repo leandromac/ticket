@@ -7,8 +7,9 @@ class User < ActiveRecord::Base
   has_many :mytickets, foreign_key: 'id_customer'
 
   # validates :email, :name, :phone, :departament, :access, presence: true
-
   validate :valid_email
+
+  belongs_to :departament
 
   def valid_email
     unless email =~ /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
