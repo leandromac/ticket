@@ -50,20 +50,28 @@
           <ul class="nav navbar-nav">
             <li class="<%= current_page?(mytickets_path) ? 'active' : '' %>"><%= link_to 'Chamados
             <span class="sr-only">(current)</span>'.html_safe, mytickets_path %></li>
-            
+
             <li class="<%= current_page?(categories_path) ? 'active' : '' %>"><%= link_to 'Categorias
             <span class="sr-only">(current)</span>'.html_safe, categories_path %></li>
-            
+
             <li class="<%= current_page?(departaments_path) ? 'active' : '' %>"><%= link_to 'Departamentos
             <span class="sr-only">(current)</span>'.html_safe, departaments_path %></li>
-            
+
             <li class="<%= current_page?(users_path) ? 'active' : '' %>"><%= link_to 'Usuários
             <span class="sr-only">(current)</span>'.html_safe, users_path %></li>
-            
+
             <li class="<%= current_page?(customers_path) ? 'active' : '' %>"><%= link_to 'Clientes
             <span class="sr-only">(current)</span>'.html_safe, customers_path %></li>
-            
+
             <li><a href="#">Relatórios</a></li>
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+            <% if user_signed_in? %>
+              <li class="pull-right">
+                <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
+              </li>
+            <% end %>
           </ul>
         </div>
       </div>
