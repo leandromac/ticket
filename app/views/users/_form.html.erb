@@ -30,6 +30,21 @@
     <%= error_span(@user[:email]) %>
   </div>
   <div class="control-group">
+    <%= f.label :password, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :password, :class => 'form-control' %>
+    </div>
+    <%= error_span(@user[:password]) %>
+  </div>
+  <div class="control-group">
+    <label>Confirm</label>
+    <%= f.label :password, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :password, :class => 'form-control' %>
+    </div>
+    <%= error_span(@user[:password]) %>
+  </div>
+  <div class="control-group">
     <%= f.label :phone, :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :phone, :class => 'form-control' %>
