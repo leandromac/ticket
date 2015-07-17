@@ -35,7 +35,6 @@
 
       <%= f.text_field :email, :class => 'form-control' %>
     </div>
-        <span c@</span>
 
     <%= error_span(@user[:email]) %>
   </div>
@@ -64,7 +63,7 @@
   <div class="control-group col-md-6">
     <%= f.label :departament, :class => 'control-label' %>
     <div class="controls">
-      <%= f.select_field :departament, :class => 'form-control' %>
+      <%= f.select :departament_id, Departament.all.map {|dep| [dep.title, dep.id] }, :class => 'form-control' %>
     </div>
     <%= error_span(@user[:departament]) %>
   </div>
