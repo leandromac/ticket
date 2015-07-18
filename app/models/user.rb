@@ -16,5 +16,17 @@ class User < ActiveRecord::Base
       errors.add(:email, "is not a valid email")
     end
   end
+
+  def is_admin?
+    role == 'admin'
+  end
+
+  def is_supporter?
+    role == 'supporter'
+  end
+
+  def is_client?
+    role == 'client'
+  end
 end
 

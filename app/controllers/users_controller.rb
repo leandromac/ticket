@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :only_admin
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   # GET /users
@@ -77,5 +78,9 @@ class UsersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
       params.require(:user).permit(:name, :email, :phone, :departament, :access, :password, :password_confirmation)
+    end
+
+    def only_admin
+      redirect_to root_path, alert: 'Você precisa ser admin' unless current_user.is_admin?
     end
 end
