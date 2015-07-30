@@ -68,9 +68,9 @@
     <%= error_span(@user[:departament]) %>
   </div>
   <div class="control-group col-md-6">
-    <%= f.label :access, :class => 'control-label' %>
+    <%= f.label :role, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :access, :class => 'form-control' %>
+      <%= f.select :role, User.roles, :class => 'form-control' %>
     </div>
     <%= error_span(@user[:access]) %>
   </div>
