@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :mytickets, foreign_key: 'id_customer'
+  has_many :comments
 
   # validates :email, :name, :phone, :departament, :access, presence: true
   validate :valid_email

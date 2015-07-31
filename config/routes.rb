@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :departaments
   resources :categories
   resources :mytickets
+  resources :comments
 
   root 'mytickets#index'
 

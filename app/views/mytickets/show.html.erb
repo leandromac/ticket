@@ -22,6 +22,17 @@
   <dd><%= @myticket.deadline %></dd>
 </dl>
 
+<% @myticket.comments.each do |comment| %>
+  <p>
+    <%= comment.description %> - <%= comment.user.name %>
+  </p>
+<% end %>
+
+<%= form_for @myticket.comments.build do |f| %>
+  <%= f.text_area :description %>
+  <%= f.submit %>
+<% end %>
+
 <%= link_to t('.back', :default => t("helpers.links.back")),
               mytickets_path, :class => 'btn btn-default'  %>
 <%= link_to t('.edit', :default => t("helpers.links.edit")),
