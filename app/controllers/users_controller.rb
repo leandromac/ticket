@@ -79,8 +79,4 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:name, :email, :phone, :departament, :access, :password, :password_confirmation)
     end
-
-    def only_admin
-      redirect_to root_path, alert: 'Você precisa ser admin' unless current_user.admin?
-    end
 end

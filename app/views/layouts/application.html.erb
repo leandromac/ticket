@@ -49,12 +49,10 @@
         <div class="navbar-collapse collapse navbar-responsive-collapse">
           <ul class="nav navbar-nav">
             <%= menu_item 'Chamados', mytickets_path %>
-            <%= menu_item 'Categorias', categories_path %>
-            <%= menu_item 'Departamentos', departaments_path %>
-            <%= menu_item 'Usuário', users_path %>
-            <%= menu_item 'Clientes', customers_path %>
-
-            <li><a href="#">Relatórios</a></li>
+            <%= menu_item 'Categorias', categories_path if current_user.try(:admin?) %>
+            <%= menu_item 'Departamentos', departaments_path if current_user.try(:admin?) %>
+            <%= menu_item 'Usuário', users_path if current_user.try(:admin?) %>
+            <%= menu_item 'Clientes', customers_path if current_user.try(:admin?) %>
           </ul>
 
           <ul class="nav navbar-nav navbar-right">

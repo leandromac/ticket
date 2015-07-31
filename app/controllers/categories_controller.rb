@@ -1,4 +1,5 @@
 class CategoriesController < ApplicationController
+  before_action :only_admin
   before_action :set_category, only: [:show, :edit, :update, :destroy]
 
   # GET /categories

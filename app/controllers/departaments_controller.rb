@@ -1,4 +1,5 @@
 class DepartamentsController < ApplicationController
+  before_action :only_admin
   before_action :set_departament, only: [:show, :edit, :update, :destroy]
 
   # GET /departaments

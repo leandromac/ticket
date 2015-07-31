@@ -1,4 +1,5 @@
 class CustomersController < ApplicationController
+  before_action :only_admin
   before_action :set_customer, only: [:show, :edit, :update, :destroy]
 
   # GET /customers
