@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :only_admin
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   # GET /users
@@ -41,7 +42,15 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1.json
   def update
     respond_to do |format|
-      if @user.update(user_params)
+      update_params = user_params
+
+      if update_params[:password].blank?
+        update_params.delete(:password)
+        update_params.delete(:password_confirmation)
+      end
+
+      if @user.update(update_params)
+        @user.update_attributes role: params[:user][:role].to_i
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
         format.json { render :show, status: :ok, location: @user }
       else
@@ -69,6 +78,8 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :email, :phone, :departament, :access)
+      params.require(:user).permit(:name, :email, :phone,
+        :departament, :access, :password,
+        :password_confirmation)
     end
 end

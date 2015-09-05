@@ -4,7 +4,7 @@ class MyticketsController < ApplicationController
   # GET /mytickets
   # GET /mytickets.json
   def index
-    @mytickets = current_user.mytickets
+    @mytickets = current_user.admin? ? Myticket.all : current_user.mytickets
   end
 
   # GET /mytickets/1
