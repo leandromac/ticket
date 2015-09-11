@@ -15,4 +15,13 @@ class Myticket < ActiveRecord::Base
   def set_active_status
     self.status = Myticket.statuses[:active]
   end
+
+  def self.search(search)
+    if search
+      find(:all, :conditions => ['subject LIKE ? OR category LIKE', "%#{search}"])
+    else
+      all
+    end
+  end
+
 end

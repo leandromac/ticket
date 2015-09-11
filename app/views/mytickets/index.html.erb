@@ -6,7 +6,14 @@
 </div>
 </div>
 <div style="padding: 30px 15px" class="col-sm-6 col-md-5 col-lg-6">
+
     <input class="form-control input-lg" type="text" placeholder="Buscar chamado...">
+
+    <% form_tag mytickets_path, :method => 'get' do %>
+      <% text_field_tag :search, params[:search] %>
+      <%= submit_tag "Search", :name => nil %>
+    <% end %>
+
 </div>
 
 <div class="row"></div>
@@ -29,9 +36,8 @@
           <%= link_to t('.new', :default => t("helpers.links.new")), new_myticket_path, :class => "btn btn-primary", data: {toggle: "modal", garget: "#abrirchamado"}  %>
         </li>
 
-
-
     </ul>
+
   <thead>
     <tr>
       <th>Chamado</th>
@@ -52,7 +58,7 @@
       <tr>
         <td><%= link_to myticket.id, myticket_path(myticket) %></td>
         <!-- <td><%= myticket.id_customer %></td> -->
-        <td><%= myticket.subject %></td>
+        <td><%= myticket.subject %> <span class="label label-default"><%= myticket.status %></span></td>
         <!-- <td><%= myticket.departament %></td> -->
        <!--  <td><%= myticket.category %></td> -->
         <!-- <td><%= myticket.mensage %></td> -->
@@ -61,8 +67,9 @@
         <!-- <td><%= myticket.deadline %></td> -->
         <td><%=l myticket.created_at %></td>
         <td>
+          <%= link_to 'Visualizar', myticket_path(myticket), :class => 'btn btn-info btn-xs' %>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_myticket_path(myticket), :class => 'btn btn-default btn-xs' %>
+                      edit_myticket_path(myticket), :class => 'btn btn-warning btn-xs' %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
                       myticket_path(myticket),
                       :method => :delete,

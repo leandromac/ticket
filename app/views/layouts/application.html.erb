@@ -72,10 +72,10 @@
 
           <ul class="nav navbar-nav navbar-right">
             <% if user_signed_in? %>
-            <li><a href=""><%= @current_user.email %></a></li>
-              <li class="pull-right">
-                <%= link_to('Sair', destroy_user_session_path, method: :delete) %>
-              </li>
+              <li><%= link_to current_user.email .html_safe, user_path(current_user) %></li>
+                <li class="pull-right">
+                  <%= link_to('Sair', destroy_user_session_path, method: :delete) %>
+                </li>
             <% end %>
           </ul>
         </div>
@@ -103,7 +103,7 @@
        FIM SIDEBAR -->
       </div><!--/row-->
       <footer class="text-center">
-        <p style="color: #777">TickET &copy; 2015</p>
+        <p style="color: #777">- TickET &copy; 2015 -</p>
       </footer>
 
     </div> <!-- /container -->

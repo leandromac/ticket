@@ -5,6 +5,7 @@ class MyticketsController < ApplicationController
   # GET /mytickets.json
   def index
     @mytickets = current_user.admin? ? Myticket.all : current_user.mytickets
+    @mytickets = Myticket.search(params[:search])
   end
 
   # GET /mytickets/1
@@ -72,4 +73,5 @@ class MyticketsController < ApplicationController
     def myticket_params
       params.require(:myticket).permit(:id_customer, :subject, :mensage, :upload, :status, :date, :deadline)
     end
+
 end
