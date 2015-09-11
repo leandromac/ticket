@@ -58,7 +58,7 @@
       <tr>
         <td><%= link_to myticket.id, myticket_path(myticket) %></td>
         <!-- <td><%= myticket.id_customer %></td> -->
-        <td><%= myticket.subject %> <span class="label label-default"><%= myticket.status %></span></td>
+        <td><%= myticket.subject %> <span class="label label-<%= status_label(myticket) %>"><%= myticket.status %></span></td>
         <!-- <td><%= myticket.departament %></td> -->
        <!--  <td><%= myticket.category %></td> -->
         <!-- <td><%= myticket.mensage %></td> -->
