@@ -8,7 +8,7 @@ class Myticket < ActiveRecord::Base
  	mount_uploader :upload, UploadUploader
 	# validates :subject, :departament, :category, :mensage, :upload, :status, presence: true
 
-  enum status: { active: '0', waiting: '1', finished: '2' }
+  enum status: { Aberto: '0', Aguardando: '1', Finalizado: '2', Cancelado: '3' }
 
   before_create :set_active_status
 

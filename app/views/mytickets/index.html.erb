@@ -56,7 +56,7 @@
   <tbody>
     <% @mytickets.each do |myticket| %>
       <tr>
-        <td><%= link_to "%06d" % myticket.id, myticket_path(myticket) %></td>
+        <td><%= link_to "#%06d" % myticket.id, myticket_path(myticket) %></td>
         <!-- <td><%= myticket.id_customer %></td> -->
         <td><%= myticket.subject %> <span class="label label-<%= status_label(myticket) %>"><%= myticket.status %></span></td>
         <!-- <td><%= myticket.departament %></td> -->

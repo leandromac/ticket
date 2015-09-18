@@ -1,6 +1,43 @@
 <%- model_class = Myticket -%>
-<div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+
+<div class="row page-header">
+      <h1 class="lead pull-left"><%= @myticket.subject %> <span class="text-uppercase label label-<%= status_label(@myticket) %>"><%= @myticket.status %></span></h1>
+      <%= link_to t('.back', :default => t("helpers.links.back")),
+                    mytickets_path, :class => 'btn btn-info btn-lg pull-right'  %>
+</div>
+
+<div class="row">
+  <div class="col-md-4">
+    <blockquote>
+      <strong>Chamado <%= "#%06d" % @myticket.id %></strong>
+    </blockquote>
+  </div>
+  <div class="col-md-4">
+      <strong>Status: </strong><%= @myticket.status %><br>
+      <strong>Data de abertura: </strong><%=l @myticket.created_at %><br>
+  </div>
+  <div class="col-md-4">
+      <strong>Seu nome: </strong>Nome do Cliente<br>
+      <strong>Seu telefone: </strong>Telefone do Cliente<br>
+      <strong>Email para contato: </strong>Email do cliente
+  </div>
+</div>
+
+<hr>
+<div class="row">
+  <div class="col-md-12 jumbotron">
+    <h4>Descrição:</h4>
+    <p class="text-justify">
+      <%= @myticket.mensage %>
+    </p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="alert alert-warning"><strong>Como esta o meu atendimento?</strong>
+  Entre em contato com o meu coordenador para qualquer feedback, enviando uma mensagem com assunto:<br>
+  <strong><%= @myticket.subject %> - <%= "#%06d" % @myticket.id %></strong>, através do email <a class="alert-link" href="mailto:suporte@dm11.com.br">suporte@dm11.com.br</a>.
+  </div>
 </div>
 
 <dl class="dl-horizontal">
