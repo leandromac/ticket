@@ -5,21 +5,19 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:title) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
-      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
   <tbody>
     <% @departaments.each do |departament| %>
       <tr>
-        <td><%= link_to departament.id, departament_path(departament) %></td>
-        <td><%= departament.title %></td>
+        <td><%= link_to departament.title, departament_path(departament) %></td>
         <td><%=l departament.created_at %></td>
         <td>
+          <%= link_to 'Visualizar', departament_path(departament), :class => 'btn btn-info btn-xs' %>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_departament_path(departament), :class => 'btn btn-default btn-xs' %>
+                      edit_departament_path(departament), :class => 'btn btn-warning btn-xs' %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
                       departament_path(departament),
                       :method => :delete,

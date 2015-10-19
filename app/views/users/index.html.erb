@@ -17,8 +17,9 @@
         <td><%= user.email %></td>
         <td><%= user.access %></td>
         <td>
+          <%= link_to 'Visualizar', user_path(user), :class => 'btn btn-info btn-xs' %>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_user_path(user), :class => 'btn btn-default btn-xs' %>
+                      edit_user_path(user), :class => 'btn btn-warning btn-xs' %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
                       user_path(user),
                       :method => :delete,

@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20150715135814) do
+=======
+ActiveRecord::Schema.define(version: 20150731013416) do
+>>>>>>> 9679d2a5c33bf6f6198e17f789b2c315a8323165
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -19,6 +23,13 @@ ActiveRecord::Schema.define(version: 20150715135814) do
     t.datetime "updated_at",     null: false
     t.integer  "departament_id"
     t.integer  "category_id"
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.integer "myticket_id"
+    t.integer "user_id"
+    t.text    "description"
+    t.string  "upload"
   end
 
   create_table "customers", force: :cascade do |t|
@@ -74,6 +85,10 @@ ActiveRecord::Schema.define(version: 20150715135814) do
     t.string   "last_sign_in_ip"
     t.string   "departament_id"
     t.string   "integer"
+<<<<<<< HEAD
+=======
+    t.integer  "role"
+>>>>>>> 9679d2a5c33bf6f6198e17f789b2c315a8323165
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

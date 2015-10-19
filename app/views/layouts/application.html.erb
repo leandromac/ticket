@@ -35,9 +35,12 @@
     <%= favicon_link_tag 'favicon.ico', :rel => 'shortcut icon' %>
 
     <%= javascript_include_tag "application" %>
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/bootstrap-theme.css" rel="stylesheet">
+    <script src="js/ie-emulation-modes-warning.js"></script>
   </head>
   <body>
-
+  <% if signed_in? %>
     <div class="navbar navbar-default navbar-static-top">
       <div class="container">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
@@ -45,8 +48,9 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">Ticket</a>
-        <div class="navbar-collapse collapse navbar-responsive-collapse">
+          <a class="navbar-brand" href="#">
+            <strong>DM11</strong> | Central do Cliente
+          </a>        <div class="navbar-collapse collapse navbar-responsive-collapse">
           <ul class="nav navbar-nav">
             <li class="<%= current_page?(mytickets_path) ? 'active' : '' %>"><%= link_to 'Chamados
             <span class="sr-only">(current)</span>'.html_safe, mytickets_path %></li>
@@ -68,15 +72,16 @@
 
           <ul class="nav navbar-nav navbar-right">
             <% if user_signed_in? %>
-              <li class="pull-right">
-                <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
-              </li>
+              <li><%= link_to current_user.email .html_safe, user_path(current_user) %></li>
+                <li class="pull-right">
+                  <%= link_to('Sair', destroy_user_session_path, method: :delete) %>
+                </li>
             <% end %>
           </ul>
         </div>
       </div>
     </div>
-
+    <% end %>
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
@@ -97,11 +102,19 @@
         </div>
        FIM SIDEBAR -->
       </div><!--/row-->
-
-      <footer>
+      <footer class="text-center">
+        <p style="color: #777">- TickET &copy; 2015 -</p>
       </footer>
 
     </div> <!-- /container -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="js/ie10-viewport-bug-workaround.js"></script>
+    <script src="js/bootstrap-min.js"></script>
+    <script src="js/npm.js"></script>
+    <script src="js/modal.js"></script>
+    <script src="js/collapse.js"></script>
+    <script src="js/dropdown.js"></script>
 
   </body>
 </html>

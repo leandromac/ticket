@@ -5,37 +5,23 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:name) %></th>
       <th><%= model_class.human_attribute_name(:emails) %></th>
       <th><%= model_class.human_attribute_name(:phone) %></th>
-      <th><%= model_class.human_attribute_name(:address) %></th>
       <th><%= model_class.human_attribute_name(:cpf_cnpj) %></th>
-      <th><%= model_class.human_attribute_name(:logo) %></th>
-      <th><%= model_class.human_attribute_name(:website) %></th>
-      <th><%= model_class.human_attribute_name(:facebook) %></th>
-      <th><%= model_class.human_attribute_name(:customer_since) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
-      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
   <tbody>
     <% @customers.each do |customer| %>
       <tr>
-        <td><%= link_to customer.id, customer_path(customer) %></td>
-        <td><%= customer.name %></td>
+        <td><%= link_to customer.name, customer_path(customer) %></td>
         <td><%= customer.emails %></td>
         <td><%= customer.phone %></td>
-        <td><%= customer.address %></td>
         <td><%= customer.cpf_cnpj %></td>
-        <td><%= customer.logo %></td>
-        <td><%= customer.website %></td>
-        <td><%= customer.facebook %></td>
-        <td><%= customer.customer_since %></td>
-        <td><%=l customer.created_at %></td>
         <td>
+          <%= link_to 'Visualizar', customer_path(customer), :class => 'btn btn-info btn-xs' %>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_customer_path(customer), :class => 'btn btn-default btn-xs' %>
+                      edit_customer_path(customer), :class => 'btn btn-warning btn-xs' %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
                       customer_path(customer),
                       :method => :delete,

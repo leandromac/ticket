@@ -51,8 +51,21 @@
     <%= error_span(@myticket[:upload]) %>
   </div>
 
-  <%= f.submit nil, :class => 'btn btn-primary' %>
-  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-            mytickets_path, :class => 'btn btn-default' %>
+  <% unless current_user.client? %>
+    <div class="control-group">
+      <%= f.label :status, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.select :status, Myticket.statuses, :class => 'form-control' %>
+      </div>
+      <%= error_span(@myticket[:categories]) %>
+    </div>
+  <% end %>
+
+  <br/>
+  <div class="control-group">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+              mytickets_path, :class => 'btn btn-default' %>
+  </div>
 
 <% end %>
