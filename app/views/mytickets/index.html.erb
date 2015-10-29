@@ -1,82 +1,99 @@
-<%- model_class = Myticket -%>
 <div class="col-sm-6 col-md-5 col-lg-6">
-<div>
-  <h1>Chamados</h1>
-  <p class="lead">Acompanhe os seus chamados junto à DM11.</p>
+  <div>
+    <h1>Chamados</h1>
+    <p class="lead">Acompanhe os seus chamados junto à DM11.</p>
+  </div>
 </div>
-</div>
-<div style="padding: 30px 15px" class="col-sm-6 col-md-5 col-lg-6">
 
+<div style="padding: 30px 15px" class="col-sm-6 col-md-5 col-lg-6">
     <input class="form-control input-lg" type="text" placeholder="Buscar chamado...">
 
     <% form_tag mytickets_path, :method => 'get' do %>
       <% text_field_tag :search, params[:search] %>
       <%= submit_tag "Search", :name => nil %>
     <% end %>
-
 </div>
 
 <div class="row"></div>
+
 <hr>
-<table class="table table-striped">
-      <ul class="nav nav-tabs">
-      <li role="presentation" class="active">
-        <a href="#">Todos os Chamados <span class="badge">42</span></a>
-      </li>
-      <li role="presentation">
-        <a href="#">Chamados Abertos <span class="badge">10</span></a>
-      </li>
-      <li role="presentation">
-        <a href="#">Chamados Finalizados <span class="badge">30</span></a>
-      </li>
-      <li role="presentation">
-        <a href="#">Chamados Cancelados <span class="badge">2</span></a>
-      </li>
-      <li class="pull-right" role="presentation">
-          <%= link_to t('.new', :default => t("helpers.links.new")), new_myticket_path, :class => "btn btn-primary", data: {toggle: "modal", garget: "#abrirchamado"}  %>
-        </li>
 
-    </ul>
+<ul id="tickets-status-filter" class="nav nav-tabs" role="tablist">
+  <li role="presentation" class="active">
+    <a href="#status-all">Todos os Chamados <span class="badge">42</span></a>
+  </li>
+  <li role="presentation">
+    <a href="#status-opened">Chamados Abertos <span class="badge">10</span></a>
+  </li>
+  <li role="presentation">
+    <a href="#status-closed">Chamados Finalizados <span class="badge">30</span></a>
+  </li>
+  <li role="presentation">
+    <a href="#status-canceled">Chamados Cancelados <span class="badge">2</span></a>
+  </li>
+  <li class="pull-right" role="presentation">
+    <%= link_to t('.new', :default => t("helpers.links.new")), new_myticket_path, :class => "btn btn-primary", data: {toggle: "modal", garget: "#abrirchamado"}  %>
+  </li>
+</ul>
 
-  <thead>
-    <tr>
-      <th>Chamado</th>
-      <!-- <th><%= model_class.human_attribute_name(:id_customer) %></th> -->
-      <th>Assunto</th>
-      <!-- <th><%= model_class.human_attribute_name(:departament) %></th> -->
-      <!-- <th><%= model_class.human_attribute_name(:category) %></th> -->
-      <!-- <th><%= model_class.human_attribute_name(:mensage) %></th> -->
-     <!--  <th><%= model_class.human_attribute_name(:upload) %></th> -->
-     <!--  <th><%= model_class.human_attribute_name(:status) %></th> -->
-     <!--  <th><%= model_class.human_attribute_name(:deadline) %></th> -->
-      <th>Data</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @mytickets.each do |myticket| %>
+<div class="tab-content">
+  <table id="status-all" class="table table-striped tab-pane active" role="tabpanel">
+    <thead>
       <tr>
-        <td><%= link_to "#%06d" % myticket.id, myticket_path(myticket) %></td>
-        <!-- <td><%= myticket.id_customer %></td> -->
-        <td><%= myticket.subject %> <span class="label label-<%= status_label(myticket) %>"><%= myticket.status %></span></td>
-        <!-- <td><%= myticket.departament %></td> -->
-       <!--  <td><%= myticket.category %></td> -->
-        <!-- <td><%= myticket.mensage %></td> -->
-        <!-- <td><%= link_to 'Baixar anexo', myticket.upload_url %></td>
-      <!-- <td><%= myticket.status %></td> -->
-        <!-- <td><%= myticket.deadline %></td> -->
-        <td><%=l myticket.created_at %></td>
-        <td>
-          <%= link_to 'Visualizar', myticket_path(myticket), :class => 'btn btn-info btn-xs' %>
-          <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_myticket_path(myticket), :class => 'btn btn-warning btn-xs' %>
-          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                      myticket_path(myticket),
-                      :method => :delete,
-                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                      :class => 'btn btn-xs btn-danger' %>
-        </td>
+        <th>Chamado</th>
+        <th>Assunto</th>
+        <th>Data</th>
+        <th></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% @mytickets.each do |myticket| %>
+        <tr>
+          <td><%= link_to "#%06d" % myticket.id, myticket_path(myticket) %></td>
+          <td><%= myticket.subject %> <span class="label label-<%= status_label(myticket) %>"><%= myticket.status %></span></td>
+          <td><%=l myticket.created_at %></td>
+          <td>
+            <%= link_to 'Visualizar', myticket_path(myticket), :class => 'btn btn-info btn-xs' %>
+            <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                        edit_myticket_path(myticket), :class => 'btn btn-warning btn-xs' %>
+            <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                        myticket_path(myticket),
+                        :method => :delete,
+                        :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                        :class => 'btn btn-xs btn-danger' %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <table id="status-opened" class="table table-striped tab-pane" role="tabpanel">
+    <thead>
+      <tr>
+        <th>Chamado</th>
+        <th>Assunto</th>
+        <th>Data</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @mytickets.take(2).each do |myticket| %>
+        <tr>
+          <td><%= link_to "#%06d" % myticket.id, myticket_path(myticket) %></td>
+          <td><%= myticket.subject %> <span class="label label-<%= status_label(myticket) %>"><%= myticket.status %></span></td>
+          <td><%=l myticket.created_at %></td>
+          <td>
+            <%= link_to 'Visualizar', myticket_path(myticket), :class => 'btn btn-info btn-xs' %>
+            <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                        edit_myticket_path(myticket), :class => 'btn btn-warning btn-xs' %>
+            <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                        myticket_path(myticket),
+                        :method => :delete,
+                        :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                        :class => 'btn btn-xs btn-danger' %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

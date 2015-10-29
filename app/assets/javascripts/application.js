@@ -15,3 +15,10 @@
 //= require twitter/bootstrap
 //= require turbolinks
 //= require_tree .
+
+$(function() {
+  $('#tickets-status-filter a').click(function (e) {
+    e.preventDefault()
+    $(this).tab('show')
+  })
+})
